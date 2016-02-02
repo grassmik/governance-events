@@ -1,27 +1,133 @@
 <!DOCTYPE html>
 <html>
-
-  <head>
-    <title>NodeJS Starter Application</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="stylesheets/style.css">
-  </head>
-
-  <body>
-    <table>
-      <tr>
-        <td style= "width:30%;">
-          <img class = "newappIcon" src="images/newapp-icon.png">
-        <td>
-            <h1>Hi there!</h1>
-          <p>Thanks for creating a
-            <span class = "blue">NodeJS Starter Application</span>.
-            Get started by reading our
-            <a href = "https://www.ng.bluemix.net/docs/#starters/nodejs/index.html#nodejs">documentation</a>
-            or use the Start Coding guide under your app in your dashboard.
-    </table>
-  </body>
-
+   <head>
+      <title>GC-Events</title>
+      <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <script type="text/javascript">
+         // Load the Visualization API and the piechart package.
+         google.load('visualization', '1.0', {'packages':['corechart','table']});
+         
+         // Set a callback to run when the Google Visualization API is loaded.
+         google.setOnLoadCallback(getDataAndDrawCharts);
+         
+         //get Data from app.js and draw charts
+         function getDataAndDrawCharts(){
+          $.ajax({ 
+           url: '/eventData',
+           type: 'GET',
+           success : function(data) { 
+         
+                      var json = JSON.parse(data);
+         
+                      // parse top events                   
+                      var topEventsArr = parseJSONArrayOfArrays(json["topEvents"]);
+                      drawBarChart(topEventsArr);
+                      
+                      // parse source history    
+                      var eventSourceHistoryArr = parseJSONArrayOfArrays(json["eventSourceHistory"]);                
+                      drawLineChart(eventSourceHistoryArr); 
+                      
+                      // parse event table
+                      var eventTableArr = parseJSONArrayOfArrays(json["eventTable"]);
+                      drawTable(eventTableArr);       
+           }          
+          });
+         }
+         
+              
+         // helper  
+         function parseJSONArrayOfArrays(jsonArray) {
+                   var arr = [];
+                   for(var rowIdx in jsonArray){
+                     var rowJson = jsonArray[rowIdx].row;
+                     var rowArr = [];
+                     for(var valIdx in rowJson) {
+                       rowArr.push(rowJson[valIdx]); 
+                     }
+                     arr.push(rowArr);
+                   }
+         
+                   console.log(arr);  
+                   return arr; 
+         }       
+         
+         
+         // Callback that creates and populates a data table,
+         // instantiates the pie chart, passes in the data and
+         // draws it.
+         function drawBarChart(topEventsArr) {
+          console.log(topEventsArr);
+         
+         
+           // Create the data table.
+           var data = new google.visualization.DataTable();
+           data.addColumn('string', 'EventType');
+           data.addColumn('number', 'Number');
+           data.addRows(topEventsArr);
+         
+           // Set chart options
+           var options = {'title':'Current Top 10 Events ',
+                          'width':500,
+                          'height':450};
+         
+           // Instantiate and draw our chart, passing in some options.
+           var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+           chart.draw(data, options);
+         }
+         
+         
+         function drawLineChart(eventSourceHistoryArr) {
+           console.log(eventSourceHistoryArr);
+         
+           var data = google.visualization.arrayToDataTable(eventSourceHistoryArr);
+         
+           var options = {
+             title: 'Event Sources History',
+             curveType: 'function',
+             legend: { position: 'bottom' }
+           };
+         
+           var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+           chart.draw(data, options);
+         }
+         
+         
+         function drawTable(eventTableArr) {
+           console.log(eventTableArr);
+           var data = new google.visualization.DataTable();
+           data.addColumn('string', 'Event Type');
+           data.addColumn('string', 'Event Source');
+           data.addColumn('number', 'Number of Events');
+           data.addRows(eventTableArr);
+         
+           var table = new google.visualization.Table(document.getElementById('table_div'));
+           table.draw(data, {showRowNumber: false, width: '500', height: '450', alternatingRowStyle: false, page: 'enable', pageSize: 10});
+         }
+         
+      </script>
+   </head>
+   <body bgcolor="#FFFFFF">
+      <H2 align='center'><font face="verdana" color="gray">Governance Center</font></H2>
+      <H3 align='center'><font face="verdana" color="lightgray">Events</font></H3>
+      <!--Divs that will hold the charts-->   
+      <table width=1185" align='center'>
+         <tr>
+            <td>
+               <div id="table_div" align='center'></div>
+            </td>
+            <td>
+               <div id="chart_div" align='center'></div>
+            </td>
+         </tr>
+      </table>
+      <p> 
+      <table border="0" width=1100" align='center'>
+         <tr>
+            <td>
+               <div id="curve_chart" align='center'></div>
+            </td>
+         </tr>
+      </table>
+   </body>
 </html>
