@@ -33,7 +33,7 @@ app.listen(appEnv.port, '0.0.0.0', function() {
 //------------------------------------------------------------------------------
 
 //endpoint to get data
-app.get("/eventData", function(res){
+app.get("/eventData", function(req, res){
   getEventData(res);
 });
 
