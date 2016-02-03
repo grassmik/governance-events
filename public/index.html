@@ -30,7 +30,11 @@
                       
                       // parse event table
                       var eventTableArr = parseJSONArrayOfArrays(json["eventTable"]);
-                      drawTable(eventTableArr);       
+                      drawTable(eventTableArr);      
+                
+                      setInterval(function () {
+                        getDataAndDrawCharts();
+                      }, 1000);
            }          
           });
          }
