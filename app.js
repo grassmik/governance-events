@@ -32,15 +32,16 @@ app.listen(appEnv.port, '0.0.0.0', function() {
 // GC-Events specific code
 //------------------------------------------------------------------------------
 
+//initialize Message Hub Rest Client
 var MessageHub = require('message-hub-rest');
-var services = process.env.VCAP_SERVICES;
+var topicName = 'gcevents';
+var consumerGroupName = 'my-consumers';
+var consumerInstanceName = consumerGroupName + appEnv.app.instance_id;
+var instance = new MessageHub(appEnv.services);
+var consumerInstance;
 
 //endpoint to get data
 app.get("/eventData", function(req, res){
-  console.log("--- services---");	
-  console.log(services);	
-  var instance = new MessageHub(services);
-  
   getEventData(res);
 });
 
@@ -49,7 +50,70 @@ app.get("/eventData", function(req, res){
 function getEventData(responseObj){
 
 var response = '{"topEvents":[{"row":["Event1",13]},{"row":["Event2",23]},{"row":["Event3",33]}],"eventSourceHistory":[{"row":["Time","MDM Server","Information Analyzer","Exception Stage"]},{"row":["02:00",1000,400,1000]},{"row":["02:10",1170,460,800]},{"row":["02:20",660,1120,400]}],"eventTable":[{"row":["EventA","Source1",34]},{"row":["EventB","Source2",54]},{"row":["EventC","Source2",2]},{"row":["EventD","Source3",12]},{"row":["EventE","Source3",66]},{"row":["EventF","Source4",223]}]}';
+ 
+ //produce
+ 
+  var list = new MessageHub.MessageList();
+    var message = {
+      user: 'mike',
+      message: 'great',
+    };
+
+    list.push(JSON.stringify(message));
+
+    instance.produce(topicName, list.messages)
+      .then(function(response) {
+          console.log(response);
+      })
+      .fail(function(error) {
+      	console.log('produce failed'); 
+        throw new Error(error);
+      });
+  
 
  responseObj.json(response);
    
 }
+
+// create topic
+
+  instance.topics.create(topicName)
+    .then(function(response) {
+      console.log(topicName + ' topic created.');
+      // Set up a consumer group of the provided name.
+      return instance.consume(consumerGroupName, consumerInstanceName, { 'auto.offset.reset': 'largest' });
+    })
+    .then(function(response) {
+      consumerInstance = response[0];
+      console.log('Consumer Instance created.');
+      // Set offset for current consumer instance.
+      return consumerInstance.get(topicName);
+    })
+    .fail(function(error) {
+    console.log(error);
+    });
+
+// Set up an interval which will poll Message Hub for new messages on the topic.
+ 
+  var produceInterval = setInterval(function() {
+
+    // Attempt to consume messages
+    if(consumerInstance) {
+      consumerInstance.get(topicName)
+        .then(function(data) {
+          console.log('Recieved data length: ' + data.length);        	 
+          if(data.length > 0) {
+            console.log('Recieved data: ' + data);
+
+         //   for(var index in data) {
+         //     data[index] = JSON.parse(data[index]);
+         //   }
+          }
+        })
+        .fail(function(error) {
+          throw new Error(error);
+        });
+    }
+  }, 2000);
+
+
