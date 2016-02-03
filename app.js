@@ -32,6 +32,10 @@ app.listen(appEnv.port, '0.0.0.0', function() {
 // GC-Events specific code
 //------------------------------------------------------------------------------
 
+var MessageHub = require('message-hub-rest');
+var services = process.env.VCAP_SERVICES;
+var instance = new MessageHub(services);
+
 //endpoint to get data
 app.get("/eventData", function(req, res){
   getEventData(res);
