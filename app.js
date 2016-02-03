@@ -34,10 +34,13 @@ app.listen(appEnv.port, '0.0.0.0', function() {
 
 var MessageHub = require('message-hub-rest');
 var services = process.env.VCAP_SERVICES;
-var instance = new MessageHub(services);
+//var instance = new MessageHub(services);
 
 //endpoint to get data
 app.get("/eventData", function(req, res){
+  console.log("--- services---");	
+  console.log(services);	
+  
   getEventData(res);
 });
 
