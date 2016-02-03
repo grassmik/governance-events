@@ -35,31 +35,22 @@ app.listen(appEnv.port, '0.0.0.0', function() {
 //initialize Message Hub Rest Client
 var MessageHub = require('message-hub-rest');
 var topicName = 'gcevents';
-var consumerGroupName = 'my-consumers';
-var consumerInstanceName = consumerGroupName + appEnv.app.instance_id;
+var consumerGroupName = 'my-consumers' +  appEnv.app.instance_id;
+var consumerInstanceName = consumerGroupName + 'Instance';
 var instance = new MessageHub(appEnv.services);
 var consumerInstance;
+var eventData = '{"topEvents":[{"row":["loading",0]}],"eventSourceHistory":[{"row":["loading","loading","loading","loading"]},{"row":["loading",0,0,0]}],"eventTable":[{"row":["loading","loading",0]}]}';
 
 //endpoint to get data
 app.get("/eventData", function(req, res){
-  getEventData(res);
+  res.json(eventData);
 });
 
-
-//read current event data
-function getEventData(responseObj){
-
-var response = '{"topEvents":[{"row":["Event1",13]},{"row":["Event2",23]},{"row":["Event3",33]}],"eventSourceHistory":[{"row":["Time","MDM Server","Information Analyzer","Exception Stage"]},{"row":["02:00",1000,400,1000]},{"row":["02:10",1170,460,800]},{"row":["02:20",660,1120,400]}],"eventTable":[{"row":["EventA","Source1",34]},{"row":["EventB","Source2",54]},{"row":["EventC","Source2",2]},{"row":["EventD","Source3",12]},{"row":["EventE","Source3",66]},{"row":["EventF","Source4",223]}]}';
- 
- //produce
- 
-  var list = new MessageHub.MessageList();
-    var message = {
-      user: 'mike',
-      message: 'great',
-    };
-
-    list.push(JSON.stringify(message));
+//endpoint to produce sample event data
+app.get("/sampleEventData", function(req, res){
+    var sampleEventData = '{"topEvents":[{"row":["Event1",13]},{"row":["Event2",23]},{"row":["Event3",33]}],"eventSourceHistory":[{"row":["Time","MDM Server","Information Analyzer","Exception Stage"]},{"row":["02:00",1000,400,1000]},{"row":["02:10",1170,460,800]},{"row":["02:20",660,1120,400]}],"eventTable":[{"row":["EventA","Source1",34]},{"row":["EventB","Source2",54]},{"row":["EventC","Source2",2]},{"row":["EventD","Source3",12]},{"row":["EventE","Source3",66]},{"row":["EventF","Source4",223]}]}';
+    var list = new MessageHub.MessageList();
+    list.push(sampleEventData);
 
     instance.produce(topicName, list.messages)
       .then(function(response) {
@@ -69,11 +60,9 @@ var response = '{"topEvents":[{"row":["Event1",13]},{"row":["Event2",23]},{"row"
       	console.log('produce failed'); 
         throw new Error(error);
       });
-  
 
- responseObj.json(response);
-   
-}
+  res.json(sampleEventData);
+});
 
 // create topic
 
@@ -104,6 +93,7 @@ var response = '{"topEvents":[{"row":["Event1",13]},{"row":["Event2",23]},{"row"
           console.log('Recieved data length: ' + data.length);        	 
           if(data.length > 0) {
             console.log('Recieved data: ' + data);
+            eventData = data;
 
          //   for(var index in data) {
          //     data[index] = JSON.parse(data[index]);
