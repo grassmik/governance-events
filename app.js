@@ -47,16 +47,28 @@ app.get("/eventData", function(req, res){
   res.json(eventData);
 });
 
-// parse application/x-www-form-urlencoded - required for request processing in /produceMessage
-app.use(bodyParser.urlencoded({ extended: false }));
+// required for request processing in /produceMessage
+app.use(bodyParser.text());
  
-// parse application/json - required for request processing in /produceMessage
+// make bodyParser accepts text/plain - required for request processing in /produceMessage
 app.use(bodyParser.text());
 
 app.post("/produceMessage", function(req, res){
-  console.log('produce input received:');
-//  console.log(req.body);
-  eventData = req.body;
+  //console.log('produceMessage input received:');
+  //console.log(req.body); 
+     var list = new MessageHub.MessageList();
+    list.push(req.body);
+
+    instance.produce(topicName, list.messages)
+      .then(function(response) {
+          console.log(response);
+      })
+      .fail(function(error) {
+      	console.log('produce failed'); 
+        throw new Error(error);
+      });
+      
+      
    res.json('{"response":"success"}');
 });
 
@@ -90,10 +102,6 @@ app.post("/produceMessage", function(req, res){
           if(data.length > 0) {
             console.log('Recieved data: ' + data);
             eventData = data;
-
-         //   for(var index in data) {
-         //     data[index] = JSON.parse(data[index]);
-         //   }
           }
         })
         .fail(function(error) {
