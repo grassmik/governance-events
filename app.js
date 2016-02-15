@@ -46,9 +46,6 @@ var eventData = '{"topEvents":[{"row":["loading",0]}],"eventSourceHistory":[{"ro
 app.get("/eventData", function(req, res){
   res.json(eventData);
 });
-
-// required for request processing in /produceMessage
-app.use(bodyParser.text());
  
 // make bodyParser accepts text/plain - required for request processing in /produceMessage
 app.use(bodyParser.text());
