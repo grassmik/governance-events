@@ -110,8 +110,9 @@ app.post("/produceMessage", function(req, res){
 //debug endpoint to produce sample event data
 
 -app.get("/sampleEventData", function(req, res){
-    var sampleEventData = '{"topEvents":[{"row":["Event1",13]},{"row":["Event2",23]},{"row":["Event3",33]}],"eventSourceHistory":[{"row":["Time","MDM Server","Information Analyzer","Exception Stage"]},{"row":["02:00",1000,400,1000]},{"row":["02:10",1170,460,800]},{"row":["02:20",660,1120,400]}],"eventTable":[{"row":["EventA","Source1",34]},{"row":["EventB","Source2",54]},{"row":["EventC","Source2",2]},{"row":["EventD","Source3",12]},{"row":["EventE","Source3",66]},{"row":["EventF","Source4",223]}]}';
-    var list = new MessageHub.MessageList();
+//var sampleEventData = '{"topEvents":[{"row":["Event1",13]},{"row":["Event2",23]},{"row":["Event3",33]}],"eventSourceHistory":[{"row":["Time","MDM Server","Information Analyzer","Exception Stage"]},{"row":["02:00",1000,400,1000]},{"row":["02:10",1170,460,800]},{"row":["02:20",660,1120,400]}],"eventTable":[{"row":["EventA","Source1",34]},{"row":["EventB","Source2",54]},{"row":["EventC","Source2",2]},{"row":["EventD","Source3",12]},{"row":["EventE","Source3",66]},{"row":["EventF","Source4",223]}]}';
+   var sampleEventData = '{"topEvents":[{"row":["Event1",13]},{"row":["Event2",23]},{"row":["Event3",33]}],"eventSourceHistory":[{"row":["Time","MDM Server","Information Analyzer","Exception Stage"]},{"row":["02:00",1000,400,1000]},{"row":["02:10",1170,460,800]},{"row":["02:20",660,1120,400]}],"eventTable":[{"row":["EventA","Source1",34]},{"row":["EventB","Source2",54]},{"row":["EventC","Source2",2]},{"row":["EventD","Source3",12]},{"row":["EventE","Source3",66]},{"row":["EventF","Source4",223]}]}';
+   var list = new MessageHub.MessageList();
     list.push(sampleEventData);
 
     instance.produce(topicName, list.messages)
