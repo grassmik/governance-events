@@ -7,9 +7,9 @@ an Information Server Kafka client.
 Usage:
 
  
-1. Fork this project into a new DevOps Services project.
-2. Add a Message Hub service to the new project and deploy the application.
-3. From the iis folder, copy the gcevents.jar to your local machine. If you use Information Server, copy it to the machine where it is installed. Run the jar with:
+1. Fork this project into a new DevOps Services project and make it a Bluemix project during the fork.
+2. Add a Message Hub service to the Bluemix project and run the application.
+3. From the iis folder, copy the gcevents.jar to your local machine. If you use Information Server, copy the jar file to the machine where it is installed. Run the jar with:
    
    java -jar gcevents.jar localhost:52181 http://gc-events.mybluemix.net demo 
 
