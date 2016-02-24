@@ -3,6 +3,4 @@ applications:
   memory: 256M
   instances: 1
   domain: mybluemix.net
-  name: GC-Events
-  host: gc-events
   disk_quota: 1024M
