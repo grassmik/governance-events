@@ -40,7 +40,8 @@ var consumerGroupName = 'my-consumers' +  appEnv.app.instance_id;
 var consumerInstanceName = consumerGroupName + 'Instance';
 var instance = new MessageHub(appEnv.services);
 var consumerInstance;
-var eventData = '{"topEvents":[{"row":["loading",0]}],"eventSourceHistory":[{"row":["loading","loading","loading","loading"]},{"row":["loading",0,0,0]}],"eventTable":[{"row":["loading","loading",0]}]}';
+var initialEventData = '{"topEvents":[{"row":["loading",0]}],"eventSourceHistory":[{"row":["loading","loading","loading","loading"]},{"row":["loading",0,0,0]}],"eventTable":[{"row":["loading","loading",0]}]}';
+var eventData = initialEventData;
  
 //endpoint to get data
 app.get("/eventData", function(req, res){
