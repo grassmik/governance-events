@@ -6,7 +6,7 @@ an Information Server Kafka client.
 
 Usage:
 
-1. Fork this project into a new DevOps Services project and make it a Bluemix project during the fork.
+1. Fork this project into a new DevOps Services project and make it a Bluemix project during the fork: click the Fork Project button on the DevOps Services project page: https://hub.jazz.net/project/grasselt/GC-Events/overview. 
 
 2. Add a Message Hub service to the Bluemix project and run the application.
 3. From the iis folder, copy the Information Server Kafka client (gcevents.jar) to your local machine. Run the jar with:
