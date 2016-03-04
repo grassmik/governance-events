@@ -9,12 +9,13 @@ Usage:
 1. Fork this project into a new DevOps Services project and make it a Bluemix project during the fork: click the Fork Project button on the DevOps Services project page: https://hub.jazz.net/project/grasselt/GC-Events/overview. 
 
 2. Add a Message Hub service to the Bluemix project and run the application.
-3. From the iis folder, copy the Information Server Kafka client (gcevents.jar) to your local machine. Run the jar with:
+3. Download the  Information Server Kafka client (gcevents.jar) to your local machine: https://ibm.box.com/s/8zq0xjavcgypdnf83uoa8clc0dylys3p
+4. Information Server Kafka client with this command:
    
    java -jar gcevents.jar iishost http://gc-events.mybluemix.net demo 
 
  NOTE: The first parameter is your Information Server host. If you do not have an Information Server installed, you can still use this client to create demo events: specify a dummy host name and the demo parameter as shown in the sample command. The second parameter points to the URL that routes to your Bluemix application as displayed on the Bluemix dashboard. Specify "demo" as the third parameter to enable automatic creation of sample events. This works even if you specify a dummy hostname as the first parameter.
-4. In a browser open your Bluemix application, for example http://gc-events.mybluemix.net
+5. In a browser open your Bluemix application, for example http://gc-events.mybluemix.net
 
 The application now updates the displayed charts as events come in. 
 
