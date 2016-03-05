@@ -1,6 +1,6 @@
 # GC-Events
 
-The GC-Events project provides a Node.js application that renders some amazing charts showing InfoSphere events statistics. It uses the [IBM Message Hub](https://console.ng.bluemix.net/catalog/services/message-hub) to communicate with an Information Server Kafka client.
+The GC-Events project provides an application that renders some amazing charts showing Information Server events statistics. It uses the [IBM Message Hub](https://console.ng.bluemix.net/catalog/services/message-hub) to communicate with an Information Server Kafka client.
 
 ## What you'll need
 
