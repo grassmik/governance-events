@@ -13,7 +13,7 @@ The GC-Events project provides a Node.js application that renders some amazing c
 0. Click the **FORK PROJECT** button to create your own copy of the code, provide a unique name (e.g.,"eventmonitor") and click the **CREATE** button.
 0. Click the **EDIT CODE** button to begin working with the application.
 0. Click the **Deploy the App from the Workspace** button and wait for the deployment to finish. A solid red dot and (stopped) indicates that the deployment failed. Why? Because the application depends on the IBM Message Hub service that is added in the next step. 
-0. Click **DASHBOARD**, click your new application (e.g.,"eventmonitor") and click **AD SERVICE OR API**
+0. Click **DASHBOARD**, click your new application (e.g.,"eventmonitor") and click **ADD SERVICE OR API**
 0. In the Web and Application category select **Message Hub**, click the **CREATE** button and then **RESTAGE** and wait for the application staging to finish. Your app is running now.
 0. Click the Routes link of your application to open  open it. The application is now waiting for events sent by the Information Server Events Kafka client sample.
 
