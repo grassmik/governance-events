@@ -19,7 +19,7 @@ The GC-Events project provides a Node.js application that renders some amazing c
 
 ## Getting and running the Information Server Events Kafka client sample
 
-0. Download the Information Server Kafka client (gcevents.jar) to your local machine: https://ibm.box.com/s/8zq0xjavcgypdnf83uoa8clc0dylys3p
+0. Download the Kafka client sample (gcevents.jar) to your local machine: https://ibm.box.com/s/8zq0xjavcgypdnf83uoa8clc0dylys3p
 0. Run the sample with this command:
     
    java -jar gcevents.jar iishost http://gc-events.mybluemix.net demo
@@ -31,6 +31,7 @@ The application now updates the displayed charts as events come in.
 ## Getting the source code:
 
 The source of the Bluemix application is available in the app.js and public/index.html files. 
+
 To get and build the Kafka client sample source code, follow these steps:
 
 0. In eclipse, create a new Java Project.
