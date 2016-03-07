@@ -35,7 +35,6 @@ The source of the Bluemix application is available in the app.js and public/inde
 To get and build the Kafka client sample source code, follow these steps:
 
 0. In eclipse, create a new Java Project.
-0. In eclipse, create a new Java Project.
 0. Right-click the src folder of your new project and select Import....
 0. Expand the General folder and click Archive File.
 0. Browse to the gcevent.jar file and expand the folder in the left screen.
