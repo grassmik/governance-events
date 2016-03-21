@@ -29,101 +29,20 @@ app.listen(appEnv.port, '0.0.0.0', function() {
 });
 
 //------------------------------------------------------------------------------
-// GC-Events specific code
+// GC-Events-Sample specific code
 //------------------------------------------------------------------------------
 
-//initialize Message Hub Rest Client
-var bodyParser = require('body-parser');
-var MessageHub = require('message-hub-rest');
-var topicName = 'gcevents';
-var consumerGroupName = 'my-consumers' +  appEnv.app.instance_id;
-var consumerInstanceName = consumerGroupName + 'Instance';
-var instance = new MessageHub(appEnv.services);
-var consumerInstance;
+//initialize events statistics
 var initialEventData = '{"topEvents":[{"row":["loading",0]}],"eventSourceHistory":[{"row":["loading","loading","loading","loading"]},{"row":["loading",0,0,0]}],"eventTable":[{"row":["loading","loading",0]}]}';
 var eventData = initialEventData;
  
-//endpoint to get data
+//endpoint to get last statistics
 app.get("/eventData", function(req, res){
   res.json(eventData);
 });
- 
-// make bodyParser accepts text/plain - required for request processing in /produceMessage
-app.use(bodyParser.text());
 
-app.post("/produceMessage", function(req, res){
-  //console.log('produceMessage input received:');
-  //console.log(req.body); 
-     var list = new MessageHub.MessageList();
-    list.push(req.body);
-
-    instance.produce(topicName, list.messages)
-      .then(function(response) {
-          console.log(response);
-      })
-      .fail(function(error) {
-      	console.log('produce failed'); 
-        throw new Error(error);
-      });
-      
-      
-   res.json('{"response":"success"}');
-});
-
-// create topic
-
-  instance.topics.create(topicName)
-    .then(function(response) {
-      console.log(topicName + ' topic created.');
-      // Set up a consumer group of the provided name.
-      return instance.consume(consumerGroupName, consumerInstanceName, { 'auto.offset.reset': 'largest' });
-    })
-    .then(function(response) {
-      consumerInstance = response[0];
-      console.log('Consumer Instance created.');
-      // Set offset for current consumer instance.
-      return consumerInstance.get(topicName);
-    })
-    .fail(function(error) {
-    console.log(error);
-    });
-
-// Set up an interval which will poll Message Hub for new messages on the topic.
- 
-  var produceInterval = setInterval(function() {
-
-    // Attempt to consume messages
-    if(consumerInstance) {
-      consumerInstance.get(topicName)
-        .then(function(data) {
-          console.log('Recieved data length: ' + data.length);        	 
-          if(data.length > 0) {
-            console.log('Recieved data: ' + data);
-            eventData = data;
-          }
-        })
-        .fail(function(error) {
-          throw new Error(error);
-        });
-    }
-  }, 2000);
-
-//debug endpoint to produce sample event data
-
--app.get("/sampleEventData", function(req, res){
-//var sampleEventData = '{"topEvents":[{"row":["Event1",13]},{"row":["Event2",23]},{"row":["Event3",33]}],"eventSourceHistory":[{"row":["Time","MDM Server","Information Analyzer","Exception Stage"]},{"row":["02:00",1000,400,1000]},{"row":["02:10",1170,460,800]},{"row":["02:20",660,1120,400]}],"eventTable":[{"row":["EventA","Source1",34]},{"row":["EventB","Source2",54]},{"row":["EventC","Source2",2]},{"row":["EventD","Source3",12]},{"row":["EventE","Source3",66]},{"row":["EventF","Source4",223]}]}';
-   var sampleEventData = '{"topEvents":[{"row":["Event1",13]},{"row":["Event2",23]},{"row":["Event3",33]}],"eventSourceHistory":[{"row":["Time","MDM Server","Information Analyzer","Exception Stage"]},{"row":["02:00",1000,400,1000]},{"row":["02:10",1170,460,800]},{"row":["02:20",660,1120,400]}],"eventTable":[{"row":["EventA","Source1",34]},{"row":["EventB","Source2",54]},{"row":["EventC","Source2",2]},{"row":["EventD","Source3",12]},{"row":["EventE","Source3",66]},{"row":["EventF","Source4",223]}]}';
-   var list = new MessageHub.MessageList();
-    list.push(sampleEventData);
-
-    instance.produce(topicName, list.messages)
-      .then(function(response) {
-          console.log(response);
-      })
-      .fail(function(error) {
-      	console.log('produce failed'); 
-        throw new Error(error);
-      });
-
-  res.json(sampleEventData);
+// endpoint to post last statistics 
+app.post("/eventData", function(req, res){
+  eventData = req.body;
+  res.json('{"response":"success"}');
 });
