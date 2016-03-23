@@ -79,6 +79,9 @@
             </goals>
           </execution>
         </executions>
+        <configuration>
+		  <finalName>${artifactId}</finalName>
+		</configuration>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -97,7 +100,7 @@
                 <resource>
                   <directory>target</directory>
                   <includes>
-                    <include>*.jar</include>
+                    <include>${artifactId}.jar</include>
                   </includes>
                 </resource>
               </resources>
