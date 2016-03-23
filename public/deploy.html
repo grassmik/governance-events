@@ -2,6 +2,11 @@
 <html>
   <head>
     <title>GC-Events server deployment</title>
+    <script type="text/javascript">
+	  var current_url=window.location.href;
+	  var base_url=current_url.substr(0, current_url.lastIndexOf("/")-1);
+	  document.getElementById("base_url").innerHTML = base_url; 
+    </script>
   </head>
   <body bgcolor="#FFFFFF">
      <H2 align='center'><font face="verdana" color="gray">Governance Center</font></H2>
@@ -12,7 +17,7 @@
        <ol>
           <li>Download following jar file: <a href="GC-Events-Sample.jar">GC-Events-Sample.jar</a>,</li>
           <li>Copy the downloaded file to the server where IBM Infosphere Information Server is running,</li>
-          <li>Execute following command: java -jar GC-Events-Sample.jar localhost http://gc-events-sample.mybluemix.net demo</li>
+          <li>Execute following command: java -jar GC-Events-Sample.jar localhost <a id="base_url"></a> demo</li>
        </ol>
        The last parameter "demo" produces demo events, for example in the case that the Infosphere Information Server does not produce events. It can be omitted.
      </div>

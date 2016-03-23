@@ -58,21 +58,12 @@
           </execution>
         </executions>
       </plugin>
-<!--      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>2.0.2</version>
-        <configuration>
-          <source>1.7</source>
-          <target>1.7</target>
-        </configuration>
-      </plugin>
--->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-shade-plugin</artifactId>
         <executions>
           <execution>
+            <id>build-jar</id>
             <phase>package</phase>
             <goals>
               <goal>shade</goal>
@@ -100,7 +91,7 @@
                 <resource>
                   <directory>target</directory>
                   <includes>
-                    <include>${artifactId}.jar</include>
+                    <include>*.jar</include>
                   </includes>
                 </resource>
               </resources>
