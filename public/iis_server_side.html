@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GC-Events server deployment</title>
+  </head>
+  <body bgcolor="#FFFFFF">
+     <H2 align='center'><font face="verdana" color="gray">Governance Server</font></H2>
+     <H3 align='center'><font face="verdana" color="lightgray">How to deploy on the IBM Infosphere Information Server side</font></H3>
+     <div>
+       The <a http="index.html">GC-Events-Sample</a> web application gets events statistics that are gathered by a server-side application that has to be deployed on the server where IBM Infosphere INformation Server is running.
+       To deploy the server-side application, follow the instructions below:
+       <ol>
+          <li>Download following jar file: <a http="GC-Events-Sample-1.0.jar">GC-Events-Sample-1.0.jar</a,</li>
+          <li>Copy the downloaded file to the server where IBM Infosphere Information Server is running,</li>
+          <li>Execute following command: java -jar GC-Events-Sample-1.0.jar localhost http://gc-events-sample.mybluemix.net demo</li>
+       </ol>
+       The last parameter "demo" produces demo events, for example in the case that the Infosphere Information Server does not produce events. It can be omitted.
+     </div>
+   </body>
+</html>
