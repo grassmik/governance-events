@@ -17,7 +17,7 @@
 // distributing the Sample, even if IBM has been advised of the possibility of 
 // such damages.
 //***************************************************************************
-ppackage com.ibm.iis.shared_open_source.gc_events_sample;
+package com.ibm.iis.shared_open_source.gc_events_sample;
 
 import java.io.BufferedWriter;
 import java.io.OutputStreamWriter;
