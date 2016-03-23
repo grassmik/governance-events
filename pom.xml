@@ -37,7 +37,7 @@
         <version>2.4.2</version>
         <executions>
           <execution>
-            <id>copy-artifacts</id>
+            <id>copy-all</id>
             <phase>package</phase>
             <goals>
               <goal>copy-resources</goal>
@@ -46,14 +46,10 @@
               <outputDirectory>target</outputDirectory>
               <resources>
                 <resource>
-                  <directory>launchConfigurations</directory>
-                </resource>
-                <resource>
-                  <directory>public</directory>
-                </resource>
-                <resource>
                   <directory>.</directory>
                   <includes>
+                    <include>launchConfigurations/**</include>
+                    <include>public/**</include>
                     <include>*.*</include>
                   </includes>
                 </resource>
