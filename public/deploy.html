@@ -3,9 +3,13 @@
   <head>
     <title>GC-Events server deployment</title>
     <script type="text/javascript">
+      console.log("begin of java script");
 	  var current_url=window.location.href;
+      console.log("current_url=" + current_url);
 	  var base_url=current_url.substr(0, current_url.lastIndexOf("/")-1);
+      console.log("base_url=" + base_url);
 	  document.getElementById("base_url").innerHTML = base_url; 
+      console.log("end of java script");
     </script>
   </head>
   <body bgcolor="#FFFFFF">
