@@ -19,11 +19,22 @@
        The <a href="index.html">Governance Center</a> web application displays events statistics gathered by a server-side application to be deployed on the server where IBM Infosphere INformation Server is running.
        To deploy the server-side application, follow the instructions below:
        <ol>
-          <li>Download following jar file: <a href="GC-Events-Sample.jar">GC-Events-Sample.jar</a>,</li>
-          <li>Copy the downloaded file to the server where IBM Infosphere Information Server is running,</li>
+          <li>Download jar file <a href="GC-Events-Sample.jar">GC-Events-Sample.jar</a>. This may take some minutes.</li>
+          <li>Copy the jar file to the server where IBM Infosphere Information Server is running.</li>
           <li>Execute following command: java -jar GC-Events-Sample.jar localhost <a id="base_url"></a> demo</li>
        </ol>
        The last parameter "demo" produces demo events, for example in the case that the Infosphere Information Server does not produce events. It can be omitted.
+     </div>
+     <div>
+       The jar file above is self-contained.
+       Instead, you can download the smaller jar file <a href="GC-Events-Sample-1.0.jar">GC-Events-Sample-1.0.jar</a>.
+       Make sure that following dependencies are available in your classpath before you call the jar file:
+       <ul>
+          <li>{IS Install Directory}/shared-open-source/kafka/install/libs/kafka_2.10-0.8.2.1.jar</li>
+          <li>{IS Install Directory}/shared-open-source/kafka/install/libs/kafka-clients-0.8.2.1.jar</li>
+          <li>{IS Install Directory}/shared-open-source/kafka/install/libs/scala-library-2.10.4.jar</li>
+          <li>javax.json-1.0.4.jar to be downloaded and stored on the server.</li>
+       </ul>
      </div>
    </body>
 </html>

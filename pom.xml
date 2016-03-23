@@ -53,20 +53,20 @@
         <version>2.4.2</version>
         <executions>
           <execution>
-            <id>copy-git</id>
+            <id>copy-config</id>
             <phase>install</phase>
             <goals>
               <goal>copy-resources</goal>
             </goals>
             <configuration>
-              <outputDirectory>target</outputDirectory>
+              <outputDirectory>app</outputDirectory>
               <resources>
                 <resource>
                   <directory>.</directory>
                   <includes>
-                    <include>launchConfigurations/**</include>
-                    <include>public/**</include>
-                    <include>*.*</include>
+                    <include>app.js</include>
+                    <include>manifest.yml</include>
+                    <include>package.json</include>
                   </includes>
                 </resource>
               </resources>
@@ -80,17 +80,21 @@
         <version>2.4.2</version>
         <executions>
           <execution>
-            <id>copy-jar</id>
+            <id>copy-public</id>
             <phase>install</phase>
             <goals>
               <goal>copy-resources</goal>
             </goals>
             <configuration>
-              <outputDirectory>target/public</outputDirectory>
+              <outputDirectory>app/public</outputDirectory>
               <resources>
+                <resource>
+                  <directory>public</directory>
+                </resource>
                 <resource>
                   <directory>target</directory>
                   <includes>
+                    <include>${artifactId}-${version}.jar</include>
                     <include>${artifactId}.jar</include>
                   </includes>
                 </resource>
