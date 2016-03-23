@@ -35,8 +35,8 @@ To get and build the Kafka client sample source code, follow these steps:
 0. In eclipse, create a new Java Project.
 0. Right-click the src folder of your new project and select Import....
 0. Expand the General folder and click Archive File.
-0. Browse to the gcevent.jar file and expand the folder in the left screen.
-0. Select only the gcevents folder and the org/json folder (uncheck all other folders) and click Finish.
+0. Browse to the GC-Events-Sample.jar file and expand the folder in the left screen.
+0. Select only the gc-events-sample folder (uncheck all other folders) and click Finish.
 0. Right-click your project and click Properties.
 0. Select Java Build Path on the left and then click the Add External Jars button on the right.
 0. Browse to the <IIS install dir>\shared-open-source\kafka\install\libs folder, select all jar files, click Open, click OK.
