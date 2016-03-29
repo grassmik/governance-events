@@ -132,7 +132,7 @@
                   <type>jar</type>
                 </artifactItem>
               </artifactItems>
-            <configuration>
+            </configuration>
           </execution>
         </executions>
       </plugin>
