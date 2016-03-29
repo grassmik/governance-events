@@ -63,7 +63,7 @@ public class ConsumerThread implements Runnable {
 
 			while (it.hasNext()) {
 				synchronized (stats) {
-					System.out.println(new Date() + ": Consumer thread " + threadIndex + " consumes a message");
+					System.out.println(new Date() + ": Consumer thread " + threadIndex + " got a message");
 					stats.addMessage(new String(it.next().message()));
 					stats.post();
 				}

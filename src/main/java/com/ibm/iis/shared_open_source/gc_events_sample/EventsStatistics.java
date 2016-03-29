@@ -209,7 +209,7 @@ public class EventsStatistics {
 	{
 		// get the Json representation of the event statistics
 		String body = createJson().toString();
-		System.out.println("Post event statistics to " + applicationURL + ": " + body);
+		System.out.println(new Date() + ": Statistics posted to " + applicationURL + ": " + body);
 		
 		// Define the server endpoint to send the HTTP request to
 		URL url = new URL(applicationURL);
@@ -234,6 +234,7 @@ public class EventsStatistics {
 			response.append(httpResponseScanner.nextLine());
 		}
 		httpResponseScanner.close();
+		System.out.println(new Date() + ": Statistics post response " + response.toString());
 		return response.toString();
 	}
 
