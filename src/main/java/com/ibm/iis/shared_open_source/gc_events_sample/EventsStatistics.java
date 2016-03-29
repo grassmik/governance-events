@@ -234,7 +234,6 @@ public class EventsStatistics {
 			response.append(httpResponseScanner.nextLine());
 		}
 		httpResponseScanner.close();
-		System.out.println(new Date() + ": Statistics post response " + response.toString());
 		return response.toString();
 	}
 

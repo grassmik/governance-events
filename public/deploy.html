@@ -10,14 +10,16 @@
          The <a href="index.html">Governance Center</a> web application displays events statistics gathered by a server-side application to be deployed on the server where IBM Infosphere INformation Server is running.
          To deploy the server-side application, follow the instructions below:
          <ol>
-            <li>Download jar file <a href="GC-Events-Sample.jar">GC-Events-Sample.jar</a>. This may take some minutes.</li>
+            <li>Download jar file <a href="GC-Events-Sample-1.0-all.jar">GC-Events-Sample-1.0-all.jar</a>. This may take some minutes.</li>
             <li>Copy the jar file to the server where IBM Infosphere Information Server is running.</li>
-            <li>Execute following command: java -jar GC-Events-Sample.jar localhost <a id="base_url"></a> demo</li>
+            <li>Execute following command: java -jar GC-Events-Sample-1.0-all.jar localhost <a id="base_url"></a> demo</li>
          </ol>
          The last parameter "demo" produces demo events, for example in the case that the Infosphere Information Server does not produce events. It can be omitted.
       </div>
       <br/><br/>
       <div>
+         <br/><br/><br/>
+         <H3>Light-weight alternative</H3>
          The jar file above is self-contained.
          Instead, you can download the smaller jar file <a href="GC-Events-Sample-1.0.jar">GC-Events-Sample-1.0.jar</a>.
          Make sure that following dependencies are available in your classpath before you call the jar file:

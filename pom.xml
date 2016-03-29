@@ -32,6 +32,20 @@
   <build>
     <plugins>
       <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <configuration>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+          <archive>
+            <manifest>
+              <mainClass>com.ibm.iis.shared_open_source.gc_events_sample.ConsumerGroupExample</mainClass>
+              <classPath>.:/opt/IBM/InformationServer/shared-open-source/kafka/install/libs</classPath>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-shade-plugin</artifactId>
         <executions>
@@ -44,12 +58,11 @@
           </execution>
         </executions>
         <configuration>
-		  <finalName>${artifactId}</finalName>
+		  <finalName>${artifactId}-${versionId}-all</finalName>
           <transformers>
             <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
               <manifestEntries>
                 <Main-Class>com.ibm.iis.shared_open_source.gc_events_sample.ConsumerGroupExample</Main-Class>
-                <Class-Path>/opt/IBM/InformationServer/shared-open-source/kafka/install/libs/</Class-Path>
               </manifestEntries>
             </transformer>
           </transformers>
@@ -102,8 +115,7 @@
                 <resource>
                   <directory>target</directory>
                   <includes>
-                    <include>${artifactId}-${version}.jar</include>
-                    <include>${artifactId}.jar</include>
+                    <include>${artifactId}-${version}*.jar</include>
                   </includes>
                 </resource>
               </resources>
