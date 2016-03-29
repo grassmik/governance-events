@@ -32,18 +32,17 @@
   <build>
     <plugins>
       <plugin>
-        <artifactId>maven-assembly-plugin</artifactId>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
         <configuration>
-          <descriptorRefs>
-            <descriptorRef>jar-with-dependencies</descriptorRef>
-          </descriptorRefs>
           <archive>
             <manifest>
+              <addClasspath>true</addClasspath>
               <mainClass>com.ibm.iis.shared_open_source.gc_events_sample.ConsumerGroupExample</mainClass>
-              <classPath>.:/opt/IBM/InformationServer/shared-open-source/kafka/install/libs</classPath>
             </manifest>
           </archive>
         </configuration>
+        <configuration>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
