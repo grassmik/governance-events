@@ -43,8 +43,6 @@ app.get("/eventData", function(req, res){
 
 // endpoint to post last statistics 
 app.post("/eventData", function(req, res){
-  console.log("posted body=" + req.body);
   eventData = req.body;
-  res.json('{"response":"success"}');
-  console.log("posted eventData=" + eventData);
+  res.json('{"response":"success", "data":' + eventData + '}');
 });
