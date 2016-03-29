@@ -111,6 +111,31 @@
           </execution>
         </executions>
       </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>2.10</version>
+        <executions>
+          <execution>
+            <id>copy-json</id>
+            <phase>package</phase>
+            <goals>
+              <goal>copy</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>app/public</outputDirectory>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>org.glassfish</groupId>
+                  <artifactId>javax.json</artifactId>
+                  <version>1.0.4</version>
+                  <type>jar</type>
+                </artifactItem>
+              </artifactItems>
+            <configuration>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
 </project>
