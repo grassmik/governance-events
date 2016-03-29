@@ -33,6 +33,7 @@ app.listen(appEnv.port, '0.0.0.0', function() {
 //------------------------------------------------------------------------------
 
 //initialize events statistics
+var bodyParser = require('body-parser');
 var initialEventData = '{"topEvents":[{"row":["loading",0]}],"eventSourceHistory":[{"row":["loading","loading"]},{"row":["loading",0]}],"eventTable":[{"row":["loading","loading",0]}]}';
 var eventData = initialEventData;
  
@@ -40,6 +41,9 @@ var eventData = initialEventData;
 app.get("/eventData", function(req, res){
   res.json(eventData);
 });
+
+// make bodyParser accepts text/plain - required for request processing in /produceMessage
+app.use(bodyParser.text());
 
 // endpoint to post last statistics 
 app.post("/eventData", function(req, res){
