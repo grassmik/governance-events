@@ -11,7 +11,7 @@
          To deploy the server-side application, follow the instructions below:
          <ol>
             <li>Download jar file <a href="GC-Events-Sample-1.0-all.jar">GC-Events-Sample-1.0-all.jar</a>. This may take some minutes.</li>
-            <li>Copy the jar file to the server where IBM Infosphere Information Server is running.</li>
+            <li>Copy the jar file to the server where IBM Infosphere Information Server is running, and change to the directory you copied into.</li>
             <li>Execute following command: java -jar GC-Events-Sample-1.0-all.jar localhost <a id="base_url"></a> demo</li>
          </ol>
          The last parameter "demo" produces demo events, for example in the case that the Infosphere Information Server does not produce events. It can be omitted.
@@ -21,14 +21,14 @@
          <br/><br/><br/>
          <H3>Light-weight alternative</H3>
          The jar file above is self-contained.
-         Instead, you can download the smaller jar file <a href="GC-Events-Sample-1.0.jar">GC-Events-Sample-1.0.jar</a>.
+         Instead, you can download a smaller jar file and use the jar files already installed on the server side. Follow the instructions below.
+         <a href="GC-Events-Sample-1.0.jar">GC-Events-Sample-1.0.jar</a>.
          Make sure that following dependencies are available in your classpath before you call the jar file:
-         <ul>
-            <li>{IS Install Directory}/shared-open-source/kafka/install/libs/kafka_2.10-0.8.2.1.jar</li>
-            <li>{IS Install Directory}/shared-open-source/kafka/install/libs/kafka-clients-0.8.2.1.jar</li>
-            <li>{IS Install Directory}/shared-open-source/kafka/install/libs/scala-library-2.10.4.jar</li>
-            <li><a href="javax.json-1.0.4.jar">javax.json-1.0.4.jar</a> to be downloaded and stored on the server.</li>
-         </ul>
+         <ol>
+            <li>Download jar files <a href="GC-Events-Sample-1.0-all.jar">GC-Events-Sample-1.0-all.jar</a> and <a href="javax.json-1.0.4.jar">javax.json-1.0.4.jar</a>.</li>
+            <li>Copy the jar file to the server where IBM Infosphere Information Server is running, and change to the directory you copied into.</li>
+            <li>Execute following command, replacing {ISInstallDirectory}by the directory where Information Server is installed: java -cp "javax.json-1.0.4.jar:GC-Events-Sample-1.0.jar:{ISInstallDirectory}/shared-open-source/kafka/install/libs/*" localhost <a id="base_url"></a> demo</li>
+         </ol>
       </div>
       <script type="text/javascript">
 	     var current_url=window.location.href;
