@@ -209,6 +209,7 @@ public class EventsStatistics {
 	{
 		// get the Json representation of the event statistics
 		String body = createJson().toString();
+		System.out.println("Post event statistics to " + applicationURL + ": " + body);
 		
 		// Define the server endpoint to send the HTTP request to
 		URL url = new URL(applicationURL);
