@@ -19,6 +19,7 @@
            success : function(data) { 
          
                       var json = JSON.parse(data);
+                      console.log(json);
          
                       // parse top events                   
                       var topEventsArr = parseJSONArrayOfArrays(json["topEvents"]);
@@ -31,7 +32,7 @@
                       // parse event table
                       var eventTableArr = parseJSONArrayOfArrays(json["eventTable"]);
                       drawTable(eventTableArr);      
-           }          
+           }
           });
          }
          
