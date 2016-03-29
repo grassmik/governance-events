@@ -42,11 +42,11 @@ app.get("/eventData", function(req, res){
   res.json(eventData);
 });
 
-// make bodyParser accepts text/plain - required for request processing in /produceMessage
+// make bodyParser accepts text/plain - required for request processing in post("/eventData")
 app.use(bodyParser.text());
 
 // endpoint to post last statistics 
 app.post("/eventData", function(req, res){
   eventData = req.body;
-  res.json('{"response":"success", "data":' + eventData + '}');
+  res.json('{"response":"success"}');
 });

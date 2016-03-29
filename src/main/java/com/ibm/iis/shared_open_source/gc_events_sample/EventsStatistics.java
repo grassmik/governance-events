@@ -190,7 +190,7 @@ public class EventsStatistics {
 			public int compare(Event event1, Event event2)
 			{
 	        	if (event1.count > event2.count) {
-	        		return  -1; // we want to highest numbers first
+	        		return  -1; // we want highest counts first
 	        	} else {
 	        		return 1;
 	        	} 	
@@ -250,7 +250,8 @@ public class EventsStatistics {
 		 */
 		JsonArrayBuilder topEventsArray = Json.createArrayBuilder();
 		Iterator<Event> topEventsIt =  sortedEvents.iterator();
-		while (topEventsIt.hasNext() && topEventsArray.build().size() < 10) {
+		int topnum = 0;
+		while (topEventsIt.hasNext() && topnum < 10) {
 			Event event = topEventsIt.next();
 			JsonObjectBuilder topEventRow = Json.createObjectBuilder();
 	 		JsonArrayBuilder topEventArray = Json.createArrayBuilder();
@@ -258,6 +259,7 @@ public class EventsStatistics {
 	 		topEventArray.add(event.count);
 	 		topEventRow.add("row", topEventArray);
 	 		topEventsArray.add(topEventRow);
+	 		topnum++;
 		}
 	    job.add("topEvents", topEventsArray);
 	        
