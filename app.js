@@ -1,4 +1,4 @@
-/*eslint-env node*/
+^/*eslint-env node*/
 
 //------------------------------------------------------------------------------
 // node.js Bluemix starter code
@@ -33,7 +33,7 @@ app.listen(appEnv.port, '0.0.0.0', function() {
 //------------------------------------------------------------------------------
 
 //initialize events statistics
-var initialEventData = '{"topEvents":[{"row":["loading",0]}],"eventSourceHistory":[{"row":["loading","loading","loading","loading"]},{"row":["loading",0,0,0]}],"eventTable":[{"row":["loading","loading",0]}]}';
+var initialEventData = '{"topEvents":[{"row":["loading",0]}],"eventSourceHistory":[{"row":["loading","loading"]},{"row":["loading",0]}],"eventTable":[{"row":["loading","loading",0]}]}';
 var eventData = initialEventData;
  
 //endpoint to get last statistics
@@ -43,6 +43,8 @@ app.get("/eventData", function(req, res){
 
 // endpoint to post last statistics 
 app.post("/eventData", function(req, res){
+  console.log("posted body=" + req.body);
   eventData = req.body;
   res.json('{"response":"success"}');
+  console.log("posted eventData=" + eventData);
 });

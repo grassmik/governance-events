@@ -276,7 +276,7 @@ public class EventsStatistics {
     	 historyArray.add(historyLabelsRow);
 	     // fill history data rows
 	     Iterator<EventSource[]> sourcesHistoryIt = eventSourceHistory.iterator();
-	     int timeLabelValue = eventSourceHistory.size() * -10 + 10;
+	     int timeLabelValue = eventSourceHistory.size() * -3 + 3;
 	     while (sourcesHistoryIt.hasNext()) {
 	    	 EventSource[] snapshot = sourcesHistoryIt.next();
 	    	 JsonObjectBuilder historyDataRow = Json.createObjectBuilder();
@@ -291,7 +291,7 @@ public class EventsStatistics {
 	    	 }
 	    	 historyDataRow.add("row", historyDataArray);
 	    	 historyArray.add(historyDataRow);
-	    	 timeLabelValue += 10;
+	    	 timeLabelValue += 3;
 	     }
 	     job.add("eventSourceHistory", historyArray);
 	     
