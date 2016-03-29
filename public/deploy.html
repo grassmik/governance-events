@@ -1,40 +1,41 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>GC-Events server deployment</title>
-    <script type="text/javascript">
-      console.log("begin of java script");
-	  var current_url=window.location.href;
-      console.log("current_url=" + current_url);
-	  var base_url=current_url.substr(0, current_url.lastIndexOf("/")-1);
-      console.log("base_url=" + base_url);
-	  window.document.getElementById("base_url").innerHTML = base_url; 
-      console.log("end of java script");
-    </script>
-  </head>
-  <body bgcolor="#FFFFFF">
-     <H2 align='center'><font face="verdana" color="gray">Governance Center</font></H2>
-     <H3 align='center'><font face="verdana" color="lightgray">How to deploy on the IBM Infosphere Information Server side</font></H3>
-     <div>
-       The <a href="index.html">Governance Center</a> web application displays events statistics gathered by a server-side application to be deployed on the server where IBM Infosphere INformation Server is running.
-       To deploy the server-side application, follow the instructions below:
-       <ol>
-          <li>Download jar file <a href="GC-Events-Sample.jar">GC-Events-Sample.jar</a>. This may take some minutes.</li>
-          <li>Copy the jar file to the server where IBM Infosphere Information Server is running.</li>
-          <li>Execute following command: java -jar GC-Events-Sample.jar localhost <a id="base_url"></a> demo</li>
-       </ol>
-       The last parameter "demo" produces demo events, for example in the case that the Infosphere Information Server does not produce events. It can be omitted.
-     </div>
-     <div>
-       The jar file above is self-contained.
-       Instead, you can download the smaller jar file <a href="GC-Events-Sample-1.0.jar">GC-Events-Sample-1.0.jar</a>.
-       Make sure that following dependencies are available in your classpath before you call the jar file:
-       <ul>
-          <li>{IS Install Directory}/shared-open-source/kafka/install/libs/kafka_2.10-0.8.2.1.jar</li>
-          <li>{IS Install Directory}/shared-open-source/kafka/install/libs/kafka-clients-0.8.2.1.jar</li>
-          <li>{IS Install Directory}/shared-open-source/kafka/install/libs/scala-library-2.10.4.jar</li>
-          <li>javax.json-1.0.4.jar to be downloaded and stored on the server.</li>
-       </ul>
-     </div>
+   <head>
+      <title>GC-Events server deployment</title>
+   </head>
+   <body bgcolor="#FFFFFF">
+      <H2 align='center'><font face="verdana" color="gray">Governance Center</font></H2>
+      <H3 align='center'><font face="verdana" color="lightgray">How to deploy on the IBM Infosphere Information Server side</font></H3>
+      <div>
+         The <a href="index.html">Governance Center</a> web application displays events statistics gathered by a server-side application to be deployed on the server where IBM Infosphere INformation Server is running.
+         To deploy the server-side application, follow the instructions below:
+         <ol>
+            <li>Download jar file <a href="GC-Events-Sample.jar">GC-Events-Sample.jar</a>. This may take some minutes.</li>
+            <li>Copy the jar file to the server where IBM Infosphere Information Server is running.</li>
+            <li>Execute following command: java -jar GC-Events-Sample.jar localhost <a id="base_url"></a> demo</li>
+         </ol>
+         The last parameter "demo" produces demo events, for example in the case that the Infosphere Information Server does not produce events. It can be omitted.
+      </div>
+      <br/><br/>
+      <div>
+         The jar file above is self-contained.
+         Instead, you can download the smaller jar file <a href="GC-Events-Sample-1.0.jar">GC-Events-Sample-1.0.jar</a>.
+         Make sure that following dependencies are available in your classpath before you call the jar file:
+         <ul>
+            <li>{IS Install Directory}/shared-open-source/kafka/install/libs/kafka_2.10-0.8.2.1.jar</li>
+            <li>{IS Install Directory}/shared-open-source/kafka/install/libs/kafka-clients-0.8.2.1.jar</li>
+            <li>{IS Install Directory}/shared-open-source/kafka/install/libs/scala-library-2.10.4.jar</li>
+            <li>javax.json-1.0.4.jar to be downloaded and stored on the server.</li>
+         </ul>
+      </div>
+      <script type="text/javascript">
+         console.log("begin of java script");
+	     var current_url=window.location.href;
+         console.log("current_url=" + current_url);
+	     var base_url=current_url.substr(0, current_url.lastIndexOf("/")-1);
+         console.log("base_url=" + base_url);
+	     window.document.getElementById("base_url").innerHTML = base_url; 
+         console.log("end of java script");
+      </script>
    </body>
 </html>
