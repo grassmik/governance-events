@@ -37,7 +37,6 @@
         <configuration>
           <archive>
             <manifest>
-              <addClasspath>true</addClasspath>
               <mainClass>com.ibm.iis.shared_open_source.gc_events_sample.ConsumerGroupExample</mainClass>
             </manifest>
           </archive>

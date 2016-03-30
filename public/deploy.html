@@ -8,11 +8,11 @@
       <H3 align='center'><font face="verdana" color="lightgray">How to deploy on the IBM Infosphere Information Server side</font></H3>
       <div>
          The <a href="index.html">Governance Center</a> web application displays events statistics gathered by a server-side application to be deployed on the server where IBM Infosphere INformation Server is running.
-         To deploy the server-side application, follow the instructions below:
+         To deploy the server-side application, follow the instructions below.
          <ol>
             <li>Download jar file <a href="GC-Events-Sample-1.0-all.jar">GC-Events-Sample-1.0-all.jar</a>. This may take some minutes.</li>
             <li>Copy the jar file to the server where IBM Infosphere Information Server is running, and change to the directory you copied into.</li>
-            <li>Execute following command: java -jar GC-Events-Sample-1.0-all.jar localhost <a id="base_url"></a> demo</li>
+            <li>Execute following command:<br/>java -jar GC-Events-Sample-1.0-all.jar localhost <a id="base_url1"></a> demo</li>
          </ol>
          The last parameter "demo" produces demo events, for example in the case that the Infosphere Information Server does not produce events. It can be omitted.
       </div>
@@ -22,18 +22,17 @@
          <H3>Light-weight alternative</H3>
          The jar file above is self-contained.
          Instead, you can download a smaller jar file and use the jar files already installed on the server side. Follow the instructions below.
-         <a href="GC-Events-Sample-1.0.jar">GC-Events-Sample-1.0.jar</a>.
-         Make sure that following dependencies are available in your classpath before you call the jar file:
          <ol>
             <li>Download jar files <a href="GC-Events-Sample-1.0-all.jar">GC-Events-Sample-1.0-all.jar</a> and <a href="javax.json-1.0.4.jar">javax.json-1.0.4.jar</a>.</li>
             <li>Copy the jar file to the server where IBM Infosphere Information Server is running, and change to the directory you copied into.</li>
-            <li>Execute following command, replacing {ISInstallDirectory}by the directory where Information Server is installed: java -cp "javax.json-1.0.4.jar:GC-Events-Sample-1.0.jar:{ISInstallDirectory}/shared-open-source/kafka/install/libs/*" com.ibm.iis.shared_open_source.gc_events_sample.ConsumerGroupExample localhost <a id="base_url"></a> demo</li>
+            <li>Execute following command, replacing {ISInstallDirectory}by the directory where Information Server is installed:<br/>java -cp "javax.json-1.0.4.jar:GC-Events-Sample-1.0.jar:{ISInstallDirectory}/shared-open-source/kafka/install/libs/*" com.ibm.iis.shared_open_source.gc_events_sample.ConsumerGroupExample localhost <a id="base_url2"></a> demo</li>
          </ol>
       </div>
       <script type="text/javascript">
 	     var current_url=window.location.href;
 	     var base_url=current_url.substr(0, current_url.lastIndexOf("/"));
-	     window.document.getElementById("base_url").innerHTML = base_url; 
+	     window.document.getElementById("base_url1").innerHTML = base_url; 
+	     window.document.getElementById("base_url2").innerHTML = base_url; 
       </script>
    </body>
 </html>
