@@ -23,8 +23,8 @@
          The jar file above is self-contained.
          Instead, you can download a smaller jar file and use the jar files already installed on the server side. Follow the instructions below.
          <ol>
-            <li>Download jar files <a href="GC-Events-Sample-1.0-all.jar">GC-Events-Sample-1.0-all.jar</a> and <a href="javax.json-1.0.4.jar">javax.json-1.0.4.jar</a>.</li>
-            <li>Copy the jar file to the server where IBM Infosphere Information Server is running, and change to the directory you copied into.</li>
+            <li>Download jar files <a href="GC-Events-Sample-1.0.jar">GC-Events-Sample-1.0.jar</a> and <a href="javax.json-1.0.4.jar">javax.json-1.0.4.jar</a>.</li>
+            <li>Copy the jar files to the server where IBM Infosphere Information Server is running, and change to the directory you copied into.</li>
             <li>Execute following command, replacing {ISInstallDirectory}by the directory where Information Server is installed:<br/>java -cp "javax.json-1.0.4.jar:GC-Events-Sample-1.0.jar:{ISInstallDirectory}/shared-open-source/kafka/install/libs/*" com.ibm.iis.shared_open_source.gc_events_sample.ConsumerGroupExample localhost <a id="base_url2"></a> demo</li>
          </ol>
       </div>
