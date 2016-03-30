@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
    <head>
-      <title>GC-Events server deployment</title>
+      <title>GC-Events-Sample Kafka client deployment</title>
    </head>
    <body bgcolor="#FFFFFF">
       <H2 align='center'><font face="verdana" color="gray">Governance Center</font></H2>
-      <H3 align='center'><font face="verdana" color="lightgray">How to deploy on the IBM Infosphere Information Server side</font></H3>
+      <H3 align='center'><font face="verdana" color="lightgray">Events Kafka client deployment</font></H3>
       <div>
-         The <a href="index.html">Governance Center</a> web application displays events statistics gathered by a server-side application to be deployed on the server where IBM Infosphere INformation Server is running.
-         To deploy the server-side application, follow the instructions below.
+         The <a href="index.html">Governance Center</a> Bluemix application displays events statistics gathered by an Events Kafka client sample application deployed on the Information Server side.
+         To deploy the Events Kafka client sample application on the server side, follow the instructions below.
          <ol>
             <li>Download jar file <a href="GC-Events-Sample-1.0-all.jar">GC-Events-Sample-1.0-all.jar</a>. This may take some minutes.</li>
             <li>Copy the jar file to the server where IBM Infosphere Information Server is running, and change to the directory you copied into.</li>
@@ -20,12 +20,12 @@
       <div>
          <br/><br/><br/>
          <H3>Light-weight alternative</H3>
-         The jar file above is self-contained.
-         Instead, you can download a smaller jar file and use the jar files already installed on the server side. Follow the instructions below.
+         The jar file above is self-contained and its size is quite big.
+         Instead, you can download two small jar files and use the jar files already installed on the server side. Follow the instructions below.
          <ol>
             <li>Download jar files <a href="GC-Events-Sample-1.0.jar">GC-Events-Sample-1.0.jar</a> and <a href="javax.json-1.0.4.jar">javax.json-1.0.4.jar</a>.</li>
             <li>Copy the jar files to the server where IBM Infosphere Information Server is running, and change to the directory you copied into.</li>
-            <li>Execute following command, replacing {ISInstallDirectory}by the directory where Information Server is installed:<br/>java -cp "javax.json-1.0.4.jar:GC-Events-Sample-1.0.jar:{ISInstallDirectory}/shared-open-source/kafka/install/libs/*" com.ibm.iis.shared_open_source.gc_events_sample.ConsumerGroupExample localhost <a id="base_url2"></a> demo</li>
+            <li>Execute following command, replacing {ISInstallDirectory} by the directory where Information Server is installed:<br/>java -cp "javax.json-1.0.4.jar:GC-Events-Sample-1.0.jar:{ISInstallDirectory}/shared-open-source/kafka/install/libs/*" com.ibm.iis.shared_open_source.gc_events_sample.ConsumerGroupExample localhost <a id="base_url2"></a> demo</li>
          </ol>
       </div>
       <script type="text/javascript">

@@ -1,6 +1,6 @@
-# GC-Events
+# GC-Events-Sample
 
-The GC-Events project provides an application that renders some amazing charts showing Information Server events statistics. It uses the [IBM Message Hub](https://console.ng.bluemix.net/catalog/services/message-hub) to communicate with an Information Server Kafka client.
+The GC-Events-Sample project provides a sample application that renders some amazing charts showing Information Server events statistics. The statistics are gathered by an Events Kafka client sample deployed on the Information Server side.
 
 ## What you'll need
 
@@ -9,36 +9,36 @@ The GC-Events project provides an application that renders some amazing charts s
 
 ## Getting and running the Bluemix app
 
-0. Open the project GIT URL: https://hub.jazz.net/git/grasselt/GC-Events
+0. Open the project GIT URL: https://hub.jazz.net/git/charpiot/GC-Events-Sample
 0. Click the **FORK PROJECT** button to create your own copy of the code, provide a unique name (e.g.,"eventsmonitor") and click the **CREATE** button.
 0. Click the **EDIT CODE** button to begin working with the application.
 0. Click the **Deploy the App from the Workspace** button and wait for the deployment to finish.
 0. Click **Open deployed application** to open the web interface. The application is now waiting for events sent by the Information Server Events Kafka client sample.
 
-## Getting and running the Information Server Events Kafka client sample
+## Deploying the Events Kafka client sample
 
-0. Download the Kafka client sample (gcevents.jar) to your local machine: https://ibm.box.com/s/8zq0xjavcgypdnf83uoa8clc0dylys3p
-0. Run the sample with this command:
-    
-   java -jar gcevents.jar iishost http://eventsmonitor.mybluemix.net demo
-     
-    NOTE: The first parameter is your Information Server host. If you do not have an Information Server installed, you can still use this client to create demo events: specify a dummy host name and the demo parameter as shown in the sample command. The second parameter points to the URL that routes to your Bluemix application as displayed on the Bluemix dashboard. Specify "demo" as the third parameter to enable automatic creation of sample events. This works even if you specify a dummy hostname as the first parameter.
+0. At the bottom of the deployed application, click on the **deployment page** link.
+0. Follow the instructions to deploy the Events kafka client sample.
 
 The application now updates the displayed charts as events come in.
 
-## Getting the source code:
+## Building the source code:
 
-The source of the Bluemix application is available in the app.js and public/index.html files. 
+The source code of the Bluemix application is available in the app.js and public/index.html files. 
 
-To get and build the Kafka client sample source code, follow these steps:
+The java source code Events Kafka client sample source is available in the src directory.
 
-0. In eclipse, create a new Java Project.
-0. Right-click the src folder of your new project and select Import....
-0. Expand the General folder and click Archive File.
-0. Browse to the GC-Events-Sample.jar file and expand the folder in the left screen.
-0. Select only the gc-events-sample folder (uncheck all other folders) and click Finish.
-0. Right-click your project and click Properties.
-0. Select Java Build Path on the left and then click the Add External Jars button on the right.
-0. Browse to the <IIS install dir>\shared-open-source\kafka\install\libs folder, select all jar files, click Open, click OK.
- 
-You can now edit and build the Information Server Kafka client implementation available in the gcevents package of your project.
+To build the Bluemix application and the Events Kafka client sample source code, follow these steps:
+
+0. In your forked Bluemix project, click the **EDIT CODE** button to go to the edition view.
+0. Click the **BUILD & DEPLOY** button to go to the pipeline view.
+0. If not already defined, create a first step to build the project:
+   * Give a name of your choice, for example Build.
+   * In the "Input" tab, make sure that the input type is "SCM reference" and that the GIT referenced is correct.
+   * In the "Work" tab, add a "Build" work, give it a name of your choice, for example "Build", select Maven as type, modify the build script to "mvn -B package install" and replace the output directory from default "target" to "app".
+0. If not already defined, create a second step to deploy the project:
+   * Give a name of your choice, for example Deploy.
+   * In the "Input" tab, make sure that the input type is "building artefacts" and that previous step and work name are selected.
+   * In the "Work" tab, add a "Deploy" work and give it a name of your choice, for example "Deploy". You can keep the default value of all other configuration parameters.
+
+You can now edit the source code in your Bluemix project. Each time a code modification is synchronized into the GIT repository, the Bluemix app will be built and deployed automatically.
