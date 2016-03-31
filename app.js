@@ -29,7 +29,7 @@ app.listen(appEnv.port, '0.0.0.0', function() {
 });
 
 //------------------------------------------------------------------------------
-// GC-Events-Sample specific code
+// Gov-Events-Sample specific code
 //------------------------------------------------------------------------------
 
 //initialize events statistics

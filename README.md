@@ -1,6 +1,6 @@
-# GC-Events-Sample
+# Gov-Events-Sample
 
-The GC-Events-Sample project provides a sample application that renders some amazing charts showing Information Server events statistics. The statistics are gathered by an Events Kafka client sample deployed on the Information Server side.
+The Gov-Events-Sample project provides a sample application that renders some amazing charts showing Information Server events statistics. The statistics are gathered by an Events Kafka client sample deployed on the Information Server side.
 
 ## What you'll need
 
@@ -9,7 +9,7 @@ The GC-Events-Sample project provides a sample application that renders some ama
 
 ## Getting and running the Bluemix app
 
-0. Open the project GIT URL: https://hub.jazz.net/git/charpiot/GC-Events-Sample
+0. Open the project GIT URL: https://hub.jazz.net/git/charpiot/Gov-Events-Sample
 0. Click the **FORK PROJECT** button to create your own copy of the code, provide a unique name (e.g.,"eventsmonitor") and click the **CREATE** button.
 0. Click the **EDIT CODE** button to begin working with the application.
 0. Click the **Deploy the App from the Workspace** button and wait for the deployment to finish.

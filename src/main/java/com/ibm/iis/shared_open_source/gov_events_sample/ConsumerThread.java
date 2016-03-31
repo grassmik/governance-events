@@ -17,7 +17,7 @@
 // distributing the Sample, even if IBM has been advised of the possibility of 
 // such damages.
 //***************************************************************************
-package com.ibm.iis.shared_open_source.gc_events_sample;
+package com.ibm.iis.shared_open_source.gov_events_sample;
 
 import java.util.Date;
 

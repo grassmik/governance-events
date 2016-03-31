@@ -17,7 +17,7 @@
 // distributing the Sample, even if IBM has been advised of the possibility of 
 // such damages.
 //***************************************************************************
-package com.ibm.iis.shared_open_source.gc_events_sample;
+package com.ibm.iis.shared_open_source.gov_events_sample;
 
 import java.util.HashMap;
 import java.util.List;
@@ -136,7 +136,7 @@ public class ConsumerGroupExample {
 	public static void main(String[] args) throws Exception {
 		if ((args.length != 2) && ((args.length != 3) || !args[2].equals("demo"))) {
 			System.out
-					.println("sample usage: java -jar gcevents.jar localhost gc-events-sample.mybluemix.net [demo]");
+					.println("sample usage: java -jar Gov-Events-Sample-1.0.jar localhost gov-events-sample.mybluemix.net [demo]");
 			return;
 		}
 
@@ -144,7 +144,7 @@ public class ConsumerGroupExample {
 		String zooKeeper = args[0] + ":52181";
 		// kafka hostname and default port in the shared-open-source patch
 		String kafka = args[0] + ":59092";
-		// URL of the bluemix application forked from sample application GC-Events-Sample
+		// URL of the bluemix application forked from sample application Gov-Events-Sample
 		String bluemix = args[1];
 
 		// default Kafka topic name
@@ -152,7 +152,7 @@ public class ConsumerGroupExample {
 		/* unique group ID for the consumers.
 		 * Consumers of the same group share all events of the Kafka topic
 		 */
-		String groupId = "gc-events-sample" + System.currentTimeMillis();
+		String groupId = "gov-events-sample" + System.currentTimeMillis();
 		// default number of consumer threads
 		int threads = 1;
 

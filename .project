@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>nodejshelloworld</name>
+	<name>Gov-Events-Sample</name>
 	<comment></comment>
 	<projects>
 	</projects>
 	<buildSpec>
 		<buildCommand>
+		mvn -B package
 		</buildCommand>
 	</buildSpec>
 	<natures>
