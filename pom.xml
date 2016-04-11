@@ -38,7 +38,7 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>com.ibm.iis.shared_open_source.gc_events_sample.ConsumerGroupExample</mainClass>
+              <mainClass>com.ibm.iis.shared_open_source.gov_events_sample.ConsumerGroupExample</mainClass>
             </manifest>
           </archive>
         </configuration>
@@ -61,7 +61,7 @@
           <transformers>
             <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
               <manifestEntries>
-                <Main-Class>com.ibm.iis.shared_open_source.gc_events_sample.ConsumerGroupExample</Main-Class>
+                <Main-Class>com.ibm.iis.shared_open_source.gov_events_sample.ConsumerGroupExample</Main-Class>
               </manifestEntries>
             </transformer>
           </transformers>
