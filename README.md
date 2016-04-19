@@ -1,3 +1,5 @@
+<a href="https://bluemix.net/deploy?repository=https://github.com/grassmik/GovernanceEvents" target="_blank"><img src="http://bluemix.net/deploy/button.png" alt="Bluemix button" /></a>
+
 # Gov-Events-Sample
 
 The Gov-Events-Sample project provides a sample application that renders some amazing charts showing Information Server events statistics. The statistics are gathered by an Events Kafka client sample deployed on the Information Server side.
