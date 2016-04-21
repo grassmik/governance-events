@@ -30,6 +30,6 @@ After the application is deployed, you need to complete the build pipeline and r
 
 ## Running the application
 
-0. Open your Bluemix dashboard, click the new application and use the displayed Routes URL to open the web interface. The application is now waiting for events sent by the Information Server Events Kafka client sample.
+0. Open your Bluemix dashboard, click the new application and use the displayed Routes URL to open the web interface. The application is now waiting for events sent by the Information Server Kafka client sample.
 0. Follow the instructions on the bottom of the web interface to download and run the Kafka client sample.
 0. After the Kafka client sample is started, the application updates the displayed charts as events come in.
