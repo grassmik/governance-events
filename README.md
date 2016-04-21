@@ -7,14 +7,14 @@ The Gov-Events-Sample project provides a sample application that renders some am
 * A [Bluemix](https://developer.ibm.com/sso/bmregistration?lang=en_US&ca=dw-_-bluemix-_-wa-simplenode1-app-_-article) account
 * A [DevOps Services](https://hub.jazz.net/?utm_source=dw&utm_campaign=bluemix&utm_content=wa-simplenode1-app&utm_medium=article) account
 
-## Building the sample app on Bluemix
+## Deploying and Building the sample app on Bluemix
 
-Use the magical buttonbelow to automatically deploy this sample application to Bluemix. 
+Use the magical button below to automatically deploy this sample application to Bluemix. 
 
 0. Click <a href="https://bluemix.net/deploy?repository=https://github.com/grassmik/governance-events" target="_blank"><img src="http://bluemix.net/deploy/button.png" alt="Bluemix button" /></a> to open the Deploy to Bluemix page.
-0.Log in to or sign up for Bluemix.
-0.Name your new app and specify any options as needed if you do not like the defaults.
-0.Click DEPLOY.
+0. Log in to or sign up for Bluemix.
+0. Name your new app and specify any options as needed if you do not like the defaults.
+0. Click DEPLOY.
 
 When the deployment is completed, a private DevOps Services project is set up. The project contains a running instance of the sample application, a configured build pipeline and a dedicated Git repository that you can use to make updates to the application.
 
