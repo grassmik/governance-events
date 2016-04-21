@@ -1,6 +1,4 @@
-<a href="https://bluemix.net/deploy?repository=https://github.com/grassmik/governance-events" target="_blank"><img src="http://bluemix.net/deploy/button.png" alt="Bluemix button" /></a>
-
-# Gov-Events-Sample
+# The Governance Events Sample
 
 The Gov-Events-Sample project provides a sample application that renders some amazing charts showing Information Server events statistics. The statistics are gathered by an Events Kafka client sample deployed on the Information Server side.
 
@@ -9,7 +7,18 @@ The Gov-Events-Sample project provides a sample application that renders some am
 * A [Bluemix](https://developer.ibm.com/sso/bmregistration?lang=en_US&ca=dw-_-bluemix-_-wa-simplenode1-app-_-article) account
 * A [DevOps Services](https://hub.jazz.net/?utm_source=dw&utm_campaign=bluemix&utm_content=wa-simplenode1-app&utm_medium=article) account
 
-## Getting and running the Bluemix app
+## Building the sample app on Bluemix
+
+Use the magical buttonbelow to automatically deploy this sample application to Bluemix. 
+
+0. Click <a href="https://bluemix.net/deploy?repository=https://github.com/grassmik/governance-events" target="_blank"><img src="http://bluemix.net/deploy/button.png" alt="Bluemix button" /></a> to open the Deploy to Bluemix page.
+0.Log in to or sign up for Bluemix.
+0.Name your new app and specify any options as needed if you do not like the defaults.
+0.Click DEPLOY.
+
+When the deployment is completed, a private DevOps Services project is set up. The project contains a running instance of the sample application, a configured build pipeline and a dedicated Git repository that you can use to make updates to the application.
+
+After the application is deployed, you need to complete the build pipeline and rebuild the project with the following steps:
 
 0. Open the project GIT URL: https://hub.jazz.net/git/charpiot/Gov-Events-Sample
 0. Click the **FORK PROJECT** button to create your own copy of the code, provide a unique name (e.g.,"eventsmonitor") and click the **CREATE** button.
@@ -17,7 +26,7 @@ The Gov-Events-Sample project provides a sample application that renders some am
 0. Click the **Deploy the App from the Workspace** button and wait for the deployment to finish.
 0. Click **Open deployed application** to open the web interface. The application is now waiting for events sent by the Information Server Events Kafka client sample.
 
-## Deploying the Events Kafka client sample
+## Downloading the Information Server Kafka client
 
 0. At the bottom of the deployed application, click on the **deployment page** link.
 0. Follow the instructions to deploy the Events kafka client sample.
