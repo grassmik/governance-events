@@ -20,10 +20,17 @@ When the deployment is completed, a private DevOps Services project is set up. T
 
 After the application is deployed, you need to complete the build pipeline and rebuild the project with the following steps:
 
-0. Open the project GIT URL: https://hub.jazz.net/git/charpiot/Gov-Events-Sample
-0. Click the **FORK PROJECT** button to create your own copy of the code, provide a unique name (e.g.,"eventsmonitor") and click the **CREATE** button.
-0. Click the **EDIT CODE** button to begin working with the application.
-0. Click the **Deploy the App from the Workspace** button and wait for the deployment to finish.
+0. Click EDIT CODE
+0. Click BUILD & DEPLOY to open the pipeline page
+0. In the Build Stage, click the Stage Configuration icon and select Configure Stage
+0. Modify the second line of the build script to "mvn -B package install"
+0. In the Build Archive Directory field, enter "app"
+0. Click SAVE
+0. In the Build Stage, click the Run Stage icon. The Build Stage will automatically trigger the Deploy Stage. Wait for the Deploy Stage to finish.
+
+
+
+
 0. Click **Open deployed application** to open the web interface. The application is now waiting for events sent by the Information Server Events Kafka client sample.
 
 ## Downloading the Information Server Kafka client
