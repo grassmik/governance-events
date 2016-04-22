@@ -4,6 +4,7 @@ The Governance Events project provides a sample application that renders statist
 
 ## What you'll need
 
+* Information Server 11.5 with [Governance Rollup 1](http://www-01.ibm.com/support/docview.wss?uid=swg24041824) or Information Server 11.5.0.1 (contains Rollup 1)
 * A [Bluemix](https://developer.ibm.com/sso/bmregistration?lang=en_US&ca=dw-_-bluemix-_-wa-simplenode1-app-_-article) account
 * A [DevOps Services](https://hub.jazz.net/?utm_source=dw&utm_campaign=bluemix&utm_content=wa-simplenode1-app&utm_medium=article) account
 
@@ -18,7 +19,7 @@ Use the magical button below to automatically deploy this sample application to 
 
 When the deployment is completed, a private DevOps Services project is set up. The project contains a running instance of the sample application, a configured build pipeline and a dedicated Git repository that you can use to make updates to the application.
 
-After the application is deployed, you need to complete the build pipeline and rebuild the project with the following steps:
+You need to complete the build pipeline and rebuild the project with the following steps:
 
 0. Click EDIT CODE
 0. Click BUILD & DEPLOY to open the pipeline page
@@ -31,5 +32,5 @@ After the application is deployed, you need to complete the build pipeline and r
 ## Running the application
 
 0. Open your Bluemix dashboard, click the new application and use the displayed Routes URL to open the web interface. The application is now waiting for events sent by the Information Server Kafka client sample.
-0. Follow the instructions on the bottom of the web interface to download and run the Kafka client sample.
+0. Follow the instructions on the bottom of the web interface to download and run the Kafka client sample that was automatically build by the Build Stage.
 0. After the Kafka client sample is started, the application updates the displayed charts as events come in.
