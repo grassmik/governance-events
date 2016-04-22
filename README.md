@@ -1,6 +1,6 @@
 # The Governance Events Sample
 
-The Governance Events Sample project provides a sample application that renders statistical charts for IBM Information Server governance events. The statistics are gathered by a Kafka Java client sample connecting to IBM Information Server. The charts are rendered by a Node.js application running on Bluemix. The complete build pipeline for the process is hosted on Bluemix, you do not need a local development environment.   
+The Governance Events project provides a sample application that renders statistical charts for all IBM Information Server events. The statistics are gathered by a Kafka Java client sample connecting to IBM Information Server. The charts are rendered by a Node.js application running on Bluemix. The complete build pipeline is hosted on Bluemix, you do not need a local development environment.   
 
 ## What you'll need
 
